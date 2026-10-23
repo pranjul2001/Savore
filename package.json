@@ -1,0 +1,28 @@
+{
+  "name": "savor-by-pallovi",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A boutique bakery storefront for Savor by Pallovi.",
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server.js",
+    "build": "tsc -b && vite build",
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^5.3.0",
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "twilio": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}
