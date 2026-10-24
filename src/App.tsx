@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { menuCategories, menuItems, type MenuItem } from "./menu";
 
+
 type Page = "home" | "menu" | "story" | "visit" | "checkout" | "payment" | "success";
 type Product = MenuItem;
 type CartLine = Product & { cartKey: string; quantity: number; selectedOption?: string };
