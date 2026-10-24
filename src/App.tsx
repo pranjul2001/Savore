@@ -225,7 +225,7 @@ function App() {
     <>
       <div className="announcement">Freshly made <span aria-hidden="true">✳</span> 100% eggless <span aria-hidden="true">✳</span> Preservative-free</div>
       <header className="site-header">
-        <button className="wordmark" onClick={() => navigate("home")} aria-label="Savorê by Pallavi home"><img src="/savor-logo-clean.png" alt="Savorê by Pallavi" /></button>
+        <button className="wordmark" onClick={() => navigate("home")} aria-label="Savorê by Pallavi home"><img src={`${import.meta.env.BASE_URL}savor-logo-clean.png`} alt="Savorê by Pallavi" /></button>
         <button className="mobile-menu-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} aria-controls="main-nav">{mobileMenuOpen ? <X /> : <span className="menu-label">Menu</span>}</button>
         <nav className={`main-nav ${mobileMenuOpen ? "open" : ""}`} id="main-nav" aria-label="Main navigation">
           <button className={page === "menu" ? "active" : ""} onClick={() => navigate("menu")}>The menu</button>
@@ -246,7 +246,7 @@ function App() {
       </main>
 
       <footer className="site-footer">
-        <button className="wordmark footer-wordmark" onClick={() => navigate("home")} aria-label="Savorê by Pallavi home"><img src="/savor-logo-clean.png" alt="Savorê by Pallavi" /></button>
+        <button className="wordmark footer-wordmark" onClick={() => navigate("home")} aria-label="Savorê by Pallavi home"><img src={`${import.meta.env.BASE_URL}savor-logo-clean.png`} alt="Savorê by Pallavi" /></button>
         <p>A little goodness in every bite.</p>
         <button onClick={() => navigate("visit")}>Find Savorê <ArrowUpRight size={14} /></button>
         <button className="privacy-link" onClick={() => setShowCookieSettings(true)}><Cookie size={14} /> Privacy choices</button>
@@ -270,7 +270,7 @@ function Home({ cart, onNavigate, onSelect, onAdd }: { cart: Record<string, numb
           <Eyebrow>Freshly made · 100% eggless</Eyebrow>
           <h1>Fresh bowls.<br />Comfort <em>made</em><br />for you.</h1>
           <p className="hero-intro">Bright flavours, thoughtful ingredients, and feel-good food from Savorê by Pallavi.</p>
-          <div className="hero-actions"><button className="button button-dark" onClick={() => onNavigate("menu")}>Explore all 59 dishes <ArrowUpRight size={15} /></button><a className="text-link" href="/savore-menu.pdf" target="_blank" rel="noreferrer">Open the menu PDF <ArrowUpRight size={14} /></a></div>
+          <div className="hero-actions"><button className="button button-dark" onClick={() => onNavigate("menu")}>Explore all 59 dishes <ArrowUpRight size={15} /></button><a className="text-link" href={`${import.meta.env.BASE_URL}savore-menu.pdf`} target="_blank" rel="noreferrer">Open the menu PDF <ArrowUpRight size={14} /></a></div>
           <div className="hero-note"><span className="note-mark">✳</span><span>Freshly made<br />preservative-free</span></div>
         </div>
         <div className="hero-image-wrap"><img className="hero-image" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=85" alt="Colourful fresh salad bowl with greens and vegetables" /><div className="image-caption"><span>BRIGHT FLAVOURS · THOUGHTFUL INGREDIENTS</span><span>01 / 04</span></div><div className="floating-note">A little<br /><i>goodness</i><br />in every bite</div></div>
@@ -296,7 +296,7 @@ function ProductCard({ product, cart, index, onSelect, onAdd }: { product: Produ
 }
 
 function MenuPage({ cart, category, setCategory, query, setQuery, items, onSelect, onAdd }: { cart: Record<string, number>; category: string; setCategory: (category: string) => void; query: string; setQuery: (query: string) => void; items: Product[]; onSelect: (product: Product) => void; onAdd: (id: string, delta: number, option?: string) => void }) {
-  return <section className="catalog-page"><div className="catalog-intro reveal"><Eyebrow>Freshly made · 100% eggless · preservative-free</Eyebrow><h1>Good food, <em>no fuss.</em></h1><p className="catalog-description">Explore all 59 dishes across salads, comfort plates, South Indian favourites, drinks, and more.</p><a className="text-link menu-pdf-link" href="/savore-menu.pdf" target="_blank" rel="noreferrer">View the four-page menu <ArrowUpRight size={14} /></a></div><div className="catalog-controls"><div className="category-row" role="tablist" aria-label="Filter menu categories">{categories.map((item) => <button key={item} className={`category ${category === item ? "active" : ""}`} role="tab" aria-selected={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div><label className="search-field"><Search size={16} /><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search 59 dishes" aria-label="Search menu" /></label></div><p className="result-count">{items.length} {items.length === 1 ? "dish" : "dishes"}{category !== "All items" ? ` · ${category}` : " · across the full menu"}</p><div className="product-grid catalog-grid">{items.map((product, index) => <ProductCard key={product.id} product={product} cart={cart} index={index} onSelect={onSelect} onAdd={onAdd} />)}{items.length === 0 && <p className="empty-state">No dishes match that search. Try another name or category.</p>}</div></section>;
+  return <section className="catalog-page"><div className="catalog-intro reveal"><Eyebrow>Freshly made · 100% eggless · preservative-free</Eyebrow><h1>Good food, <em>no fuss.</em></h1><p className="catalog-description">Explore all 59 dishes across salads, comfort plates, South Indian favourites, drinks, and more.</p><a className="text-link menu-pdf-link" href={`${import.meta.env.BASE_URL}savore-menu.pdf`} target="_blank" rel="noreferrer">View the four-page menu <ArrowUpRight size={14} /></a></div><div className="catalog-controls"><div className="category-row" role="tablist" aria-label="Filter menu categories">{categories.map((item) => <button key={item} className={`category ${category === item ? "active" : ""}`} role="tab" aria-selected={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div><label className="search-field"><Search size={16} /><input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search 59 dishes" aria-label="Search menu" /></label></div><p className="result-count">{items.length} {items.length === 1 ? "dish" : "dishes"}{category !== "All items" ? ` · ${category}` : " · across the full menu"}</p><div className="product-grid catalog-grid">{items.map((product, index) => <ProductCard key={product.id} product={product} cart={cart} index={index} onSelect={onSelect} onAdd={onAdd} />)}{items.length === 0 && <p className="empty-state">No dishes match that search. Try another name or category.</p>}</div></section>;
 }
 
 function StoryPage({ onNavigate }: { onNavigate: (page: Page) => void }) {
