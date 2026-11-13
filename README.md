@@ -1,6 +1,6 @@
 # Savorê by Pallavi
 
-A responsive bakery storefront foundation built with React, TypeScript, and Vite.
+A responsive storefront for Savorê by Pallavi built with React, TypeScript, Vite, and Motion (`motion/react`) for animation.
 
 ## Run locally
 
@@ -9,7 +9,9 @@ npm install
 npm run dev
 ```
 
-Create a production bundle with `npm run build`; inspect it locally with `npm run preview`.
+Open http://localhost:5173/Savore/ (the `/Savore/` base path matches GitHub Pages).
+
+Create a production bundle with `npm run build`; serve it locally with `NODE_ENV=production npm start`.
 
 ## Current scope
 
@@ -19,7 +21,8 @@ Create a production bundle with `npm run build`; inspect it locally with `npm ru
 - Simulated UPI, card, net banking, and wallet choices
 - Demo invoice download and print-to-PDF action, with SMS/email confirmation previews
 - Supplied brand logo and four-page menu PDF are in `public/`
-- Hero and story photography remains a visual placeholder pending approved product photography
+- Food imagery is placeholder illustration in `public/art/`; swap in approved photography by editing `src/lib/art.ts` only
+- Design tokens (colours, fonts, spacing) live at the top of `src/styles/base.css`; all motion respects `prefers-reduced-motion`
 
 The catalog and INR prices are transcribed from the supplied menu PDF. Payment is simulated only: no payment credentials are transmitted or stored, no charge is made, and no order is sent to the restaurant. A real amount-specific UPI QR needs the merchant UPI ID (VPA) and display name. Direct UPI QR payments cannot be verified by this site; verified paid confirmations need a gateway and server-side payment webhook.
 
